@@ -7,12 +7,14 @@ public class User {
     private String name;
     private String emailId;
     private Gender gender;
+    private String mobileNumber;
 
-    public User(Integer id, String name, String emailId, Gender gender) {
+    public User(Integer id, String name, String emailId, Gender gender, String mobileNumber) {
         this.id = id;
         this.name = name;
         this.emailId = emailId;
         this.gender = gender;
+        this.mobileNumber = mobileNumber;
     }
 
     public Integer getId() {
@@ -45,5 +47,13 @@ public class User {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 }

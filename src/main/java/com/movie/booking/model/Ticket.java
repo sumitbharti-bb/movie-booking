@@ -5,12 +5,10 @@ import java.util.List;
 public class Ticket {
     private Integer id;
     private List<Seat> seats;
-    private List<User> users;
 
-    public Ticket(Integer id, List<Seat> seats, List<User> users) {
+    public Ticket(Integer id, List<Seat> seats) {
         this.id = id;
         this.seats = seats;
-        this.users = users;
     }
 
     public Integer getId() {
@@ -29,11 +27,4 @@ public class Ticket {
         this.seats = seats;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 }

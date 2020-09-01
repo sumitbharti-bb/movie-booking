@@ -3,7 +3,6 @@ package com.movie.booking.model;
 import java.util.List;
 
 public class CinemaHall {
-
     private Integer id;
     private String name;
     private Cinema cinema;

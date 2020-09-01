@@ -8,12 +8,14 @@ public class Seat {
     private Integer seatNumber;
     private SeatType seatType;
     private SeatStatus seatStatus;
+    private Double price;
 
-    public Seat(Integer id, Integer seatNumber, SeatType seatType, SeatStatus seatStatus) {
+    public Seat(Integer id, Integer seatNumber, SeatType seatType, SeatStatus seatStatus, Double price) {
         this.id = id;
         this.seatNumber = seatNumber;
         this.seatType = seatType;
         this.seatStatus = seatStatus;
+        this.price = price;
     }
 
     public Integer getId() {
@@ -46,5 +48,13 @@ public class Seat {
 
     public void setSeatStatus(SeatStatus seatStatus) {
         this.seatStatus = seatStatus;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }
