@@ -1,6 +1,11 @@
 package com.movie.booking.model;
 
+import com.movie.booking.types.SeatStatus;
+import com.movie.booking.types.SeatType;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CinemaHall {
     private Integer id;
@@ -8,16 +13,18 @@ public class CinemaHall {
     private Cinema cinema;
     private LocationArea locationArea;
     private Movie movie;
-    private Integer totalSeatCapacity;
-    private List<Seat> seats;
+    private Integer totalGoldSeatCapacity;
+    private Integer totalSilverSeatCapacity;
+    private Integer totalPlatinumSeatCapacity;
+    private List<Seat> seats = new ArrayList<Seat>();
 
-    public CinemaHall(Integer id, String name, Cinema cinema, LocationArea locationArea, Movie movie, Integer totalSeatCapacity) {
+    public CinemaHall(Integer id, String name,Integer totalGoldSeatCapacity, Integer totalSilverSeatCapacity, Integer totalPlatinumSeatCapacity) {
         this.id = id;
         this.name = name;
-        this.cinema = cinema;
-        this.locationArea = locationArea;
-        this.movie = movie;
-        this.totalSeatCapacity = totalSeatCapacity;
+        this.totalSilverSeatCapacity = totalSilverSeatCapacity;
+        this.totalGoldSeatCapacity = totalGoldSeatCapacity;
+        this.totalPlatinumSeatCapacity = totalPlatinumSeatCapacity;
+        addSeatsToCinemaHall();
     }
 
     public Integer getId() {
@@ -60,4 +67,71 @@ public class CinemaHall {
         this.movie = movie;
     }
 
+    public Integer getTotalGoldSeatCapacity() {
+        return totalGoldSeatCapacity;
+    }
+
+    public void setTotalGoldSeatCapacity(Integer totalGoldSeatCapacity) {
+        this.totalGoldSeatCapacity = totalGoldSeatCapacity;
+    }
+
+    public Integer getTotalSilverSeatCapacity() {
+        return totalSilverSeatCapacity;
+    }
+
+    public void setTotalSilverSeatCapacity(Integer totalSilverSeatCapacity) {
+        this.totalSilverSeatCapacity = totalSilverSeatCapacity;
+    }
+
+    public Integer getTotalPlatinumSeatCapacity() {
+        return totalPlatinumSeatCapacity;
+    }
+
+    public void setTotalPlatinumSeatCapacity(Integer totalPlatinumSeatCapacity) {
+        this.totalPlatinumSeatCapacity = totalPlatinumSeatCapacity;
+    }
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
+    }
+
+    public void addMovieToCinemaHall(Movie movie){
+        this.movie = movie;
+    }
+
+    public void addSeatsToCinemaHall(){
+        int seatIndex=1;
+        for(int silverSeatIndex=0;silverSeatIndex<totalSilverSeatCapacity;silverSeatIndex++){
+            Seat seat = new Seat(seatIndex, seatIndex, SeatType.SILVER, SeatStatus.AVAILABLE, 20.00);
+            seats.add(seat);
+        }
+
+        for(int goldSeatIndex=0;goldSeatIndex<totalGoldSeatCapacity;goldSeatIndex++){
+            Seat seat = new Seat(seatIndex, seatIndex, SeatType.GOLD, SeatStatus.AVAILABLE, 25.00);
+            seats.add(seat);
+        }
+
+        for(int platinumSeatIndex=0;platinumSeatIndex<totalPlatinumSeatCapacity;platinumSeatIndex++){
+            Seat seat = new Seat(seatIndex, seatIndex, SeatType.PLATINUM, SeatStatus.AVAILABLE, 35.00);
+            seats.add(seat);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CinemaHall that = (CinemaHall) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
 }

@@ -17,7 +17,7 @@ public class MovieService {
         return movieDao.deleteMovie(name);
     }
 
-    public Movie getBooking(String name) {
+    public Movie getMovie(String name) {
         return movieDao.getBooking(name);
     }
 

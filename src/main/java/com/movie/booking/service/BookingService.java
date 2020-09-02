@@ -2,6 +2,9 @@ package com.movie.booking.service;
 
 import com.movie.booking.dao.BookingDao;
 import com.movie.booking.model.Booking;
+import com.movie.booking.model.Movie;
+
+import java.util.List;
 
 public class BookingService {
 
@@ -17,6 +20,10 @@ public class BookingService {
 
     public Booking getBooking(String mobileNumber) {
         return bookingDao.getBooking(mobileNumber);
+    }
+
+    public List<Booking> getAll(){
+        return bookingDao.getAll();
     }
 
 }

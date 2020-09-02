@@ -1,7 +1,10 @@
 package com.movie.booking.service;
 
 import com.movie.booking.dao.PaymentDao;
+import com.movie.booking.model.City;
 import com.movie.booking.model.Payment;
+
+import java.util.List;
 
 public class PaymentService {
 
@@ -17,5 +20,9 @@ public class PaymentService {
 
     public Payment getPayment(String id) {
         return paymentDao.getPayment(id);
+    }
+
+    public List<Payment> getAll(){
+        return paymentDao.getAll();
     }
 }

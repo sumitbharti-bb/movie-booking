@@ -1,7 +1,10 @@
 package com.movie.booking.service;
 
 import com.movie.booking.dao.CinemaHallDao;
+import com.movie.booking.model.Booking;
 import com.movie.booking.model.CinemaHall;
+
+import java.util.List;
 
 public class CinemaHallService {
 
@@ -16,5 +19,9 @@ public class CinemaHallService {
 
     public CinemaHall getCinemaHall(String cinemaName, String cinemaHallName) {
         return cinemaHallDao.getCinemaHall(cinemaName, cinemaHallName);
+    }
+
+    public List<CinemaHall> getAll(){
+        return cinemaHallDao.getAll();
     }
 }

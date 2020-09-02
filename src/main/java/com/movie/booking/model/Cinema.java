@@ -1,12 +1,13 @@
 package com.movie.booking.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cinema {
 
     private Integer id;
     private String name;
-    private List<CinemaHall> cinemaHalls;
+    private List<CinemaHall> cinemaHalls = new ArrayList<CinemaHall>();
 
     public Cinema(Integer id, String name) {
         this.id = id;

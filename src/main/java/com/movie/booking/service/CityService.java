@@ -2,7 +2,10 @@ package com.movie.booking.service;
 
 import com.movie.booking.dao.CinemaDao;
 import com.movie.booking.dao.CityDao;
+import com.movie.booking.model.Cinema;
 import com.movie.booking.model.City;
+
+import java.util.List;
 
 public class CityService {
 
@@ -17,5 +20,9 @@ public class CityService {
 
     public City getCity(String cityName) {
       return cityDao.getCity(cityName);
+    }
+
+    public List<City> getAll(){
+        return cityDao.getAll();
     }
 }
