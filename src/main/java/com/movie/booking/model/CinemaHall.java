@@ -107,16 +107,19 @@ public class CinemaHall {
         int seatIndex=1;
         for(int silverSeatIndex=0;silverSeatIndex<totalSilverSeatCapacity;silverSeatIndex++){
             Seat seat = new Seat(seatIndex, seatIndex, SeatType.SILVER, SeatStatus.AVAILABLE, 20.00);
+            seatIndex++;
             seats.add(seat);
         }
 
         for(int goldSeatIndex=0;goldSeatIndex<totalGoldSeatCapacity;goldSeatIndex++){
             Seat seat = new Seat(seatIndex, seatIndex, SeatType.GOLD, SeatStatus.AVAILABLE, 25.00);
+            seatIndex++;
             seats.add(seat);
         }
 
         for(int platinumSeatIndex=0;platinumSeatIndex<totalPlatinumSeatCapacity;platinumSeatIndex++){
             Seat seat = new Seat(seatIndex, seatIndex, SeatType.PLATINUM, SeatStatus.AVAILABLE, 35.00);
+            seatIndex++;
             seats.add(seat);
         }
     }
